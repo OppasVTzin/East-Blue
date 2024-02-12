@@ -542,7 +542,7 @@ shape = SubResource("CapsuleShape2D_unw5j")
 
 [node name="Texture" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ca116")
-animation = &"Dash"
+animation = &"Gatling"
 autoplay = "Idle"
 
 [node name="HitBox" type="Area2D" parent="."]
