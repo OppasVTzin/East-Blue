@@ -1,0 +1,112 @@
+[gd_scene load_steps=17 format=3 uid="uid://bfui2hjydd0i0"]
+
+[ext_resource type="Script" path="res://script/OceanMap.gd" id="1_exajk"]
+[ext_resource type="PackedScene" uid="uid://byk6ut5151qmd" path="res://Scenes/Ocean.tscn" id="1_gd7la"]
+[ext_resource type="Texture2D" uid="uid://bfe26pmyujahc" path="res://Resources/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="2_jgmo4"]
+[ext_resource type="PackedScene" uid="uid://dxyoy44d0ih1s" path="res://Scenes/merry.tscn" id="3_5ua58"]
+[ext_resource type="AudioStream" uid="uid://b3uf43ncvsco2" path="res://Assets/360ytmp3.com_192kbps-one-piece-ost-the-very-very-strongest.mp3" id="5_xj27i"]
+[ext_resource type="PackedScene" uid="uid://d6i1dynd3gx4" path="res://Assets/Foosha Village.glb" id="6_ihkb2"]
+[ext_resource type="PackedScene" uid="uid://j5aj6xgxu0c1" path="res://Assets/Shells/Shells Town.gltf" id="6_oxo2a"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_n8ust"]
+panorama = ExtResource("2_jgmo4")
+
+[sub_resource type="Sky" id="Sky_i2im3"]
+sky_material = SubResource("PanoramaSkyMaterial_n8ust")
+
+[sub_resource type="Environment" id="Environment_pg8xi"]
+background_mode = 2
+sky = SubResource("Sky_i2im3")
+ambient_light_source = 3
+reflected_light_source = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_50yis"]
+height = 40.0
+radius = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1ho4"]
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_ekj4t"]
+material = SubResource("StandardMaterial3D_d1ho4")
+radius = 20.0
+section_length = 100.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t7spv"]
+height = 155.0
+radius = 175.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duads"]
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_yvr2p"]
+material = SubResource("StandardMaterial3D_duads")
+radius = 175.0
+section_length = 155.0
+
+[node name="OceanMap" type="Node3D"]
+script = ExtResource("1_exajk")
+
+[node name="Ocean" parent="." instance=ExtResource("1_gd7la")]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pg8xi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.987414, 0.158158, 0, -0.158158, 0.987414, 0, 0, 0)
+
+[node name="Merry" parent="." instance=ExtResource("3_5ua58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+
+[node name="Camera3D" parent="Merry" index="0"]
+near = 0.01
+
+[node name="Music" type="AudioStreamPlayer" parent="Merry/Camera3D" index="0"]
+stream = ExtResource("5_xj27i")
+autoplay = true
+mix_target = 1
+
+[node name="Foosha Village" parent="." instance=ExtResource("6_ihkb2")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 2.62847, -156.858)
+
+[node name="Area3D" type="Area3D" parent="Foosha Village"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -4.65512e-05, 2.76566e-05)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foosha Village/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.442, 0)
+shape = SubResource("CylinderShape3D_50yis")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Foosha Village/Area3D"]
+mesh = SubResource("TubeTrailMesh_ekj4t")
+
+[node name="Shells Town" parent="." instance=ExtResource("6_oxo2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -322.145, 10.5125, -357.159)
+
+[node name="Area3D" type="Area3D" parent="Shells Town"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -4.65512e-05, 2.76566e-05)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shells Town/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+shape = SubResource("CylinderShape3D_t7spv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shells Town/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 10.7432)
+mesh = SubResource("TubeTrailMesh_yvr2p")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+
+[connection signal="body_entered" from="Foosha Village/Area3D" to="Merry" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Shells Town/Area3D" to="Merry" method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Merry"]

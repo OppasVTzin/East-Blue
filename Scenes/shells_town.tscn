@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://bl7lvrcbh4m1d"]
+
+[ext_resource type="Script" path="res://script/shells.gd" id="1_kirnp"]
+[ext_resource type="Texture2D" uid="uid://c5ri7k0sen8pf" path="res://Assets/Shells/Boss 1 Morgan.png" id="1_w4fdx"]
+[ext_resource type="PackedScene" uid="uid://cxwkqxta4ff1h" path="res://Scenes/player.tscn" id="2_6ses8"]
+[ext_resource type="PackedScene" uid="uid://ds5oq3m0fx62g" path="res://Scenes/morgan.tscn" id="3_ljyim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed6qh"]
+size = Vector2(254, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yac8f"]
+size = Vector2(12, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xakdd"]
+size = Vector2(8, 150)
+
+[node name="Shells Town" type="Node2D"]
+script = ExtResource("1_kirnp")
+
+[node name="BG" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_w4fdx")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_6ses8")]
+position = Vector2(90, 80)
+
+[node name="Texture" parent="Player" index="1"]
+animation = &"Bazooka"
+
+[node name="Bazooka" parent="Player/Attacks" index="0"]
+attackAmount = 7.0
+triggerFrameEnd = 7
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(127, 151)
+shape = SubResource("RectangleShape2D_ed6qh")
+
+[node name="Teto" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(128, -6)
+shape = SubResource("RectangleShape2D_ed6qh")
+
+[node name="Wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4, 72.5)
+shape = SubResource("RectangleShape2D_yac8f")
+
+[node name="Wall2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(252, 71)
+shape = SubResource("RectangleShape2D_xakdd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(125, 72)
+offset = Vector2(2, 0)
+zoom = Vector2(5, 5)
+
+[node name="Morgan" parent="." instance=ExtResource("3_ljyim")]
+position = Vector2(206, 102)
+
+[node name="Health" parent="Morgan" index="7"]
+process_mode = 3
+
+[editable path="Player"]
+[editable path="Morgan"]

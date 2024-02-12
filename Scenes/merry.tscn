@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxyoy44d0ih1s"]
+
+[ext_resource type="Script" path="res://script/3Dpawn.gd" id="1_ngn6l"]
+[ext_resource type="PackedScene" uid="uid://dmyylx7tmfkmx" path="res://Assets/one_piece_-going_merry.glb" id="2_qax20"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bqrjg"]
+radius = 1.375
+height = 5.5
+
+[node name="3Dpawn" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_mask = 2
+script = ExtResource("1_ngn6l")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.422618, 0.906308, 0, 0.906308, 0.422618, -1, 1.84732e-08, -3.9616e-08, 5, 5, 0)
+current = true
+
+[node name="one_piece_-going_merry" parent="." instance=ExtResource("2_qax20")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.36, 1.4, 0)
+shape = SubResource("CapsuleShape3D_bqrjg")

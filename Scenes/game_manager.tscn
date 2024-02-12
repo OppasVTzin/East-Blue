@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://2brhmhocy75u"]
+
+[ext_resource type="Script" path="res://script/GameManager.gd" id="1_bsr7q"]
+[ext_resource type="PackedScene" uid="uid://bvtek201bc4y3" path="res://Scenes/auto_save_sprite.tscn" id="2_3xm46"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_bsr7q")
+packed = ExtResource("2_3xm46")

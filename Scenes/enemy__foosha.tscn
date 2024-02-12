@@ -1,0 +1,302 @@
+[gd_scene load_steps=34 format=3 uid="uid://lldlmpqf8rja"]
+
+[ext_resource type="Shader" uid="uid://csqdnosi7paa3" path="res://Shaders/enemy/enemy_foosha_hit.tres" id="1_bg8pq"]
+[ext_resource type="Script" path="res://script/Enemy  Foosha.gd" id="1_yyf1j"]
+[ext_resource type="Texture2D" uid="uid://blgx1txsguxls" path="res://Assets/Pirate-knife.png" id="2_4dmd5"]
+[ext_resource type="PackedScene" uid="uid://b03potass7dys" path="res://Scenes/heart.tscn" id="2_5klnq"]
+[ext_resource type="Texture2D" uid="uid://cjmitd63cmqu2" path="res://Assets/sprites/KnifePirateAttack.png" id="4_cg3aa"]
+[ext_resource type="Texture2D" uid="uid://bmenlh7vlii7b" path="res://Assets/sprites/KnifePirateHit.png" id="5_3fli4"]
+[ext_resource type="Texture2D" uid="uid://cxci5bgspjl47" path="res://Assets/sprites/KnifePirateWalk.png" id="6_1w6ad"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_51s5f"]
+radius = 12.5
+height = 45.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i11up"]
+resource_local_to_scene = true
+shader = ExtResource("1_bg8pq")
+shader_parameter/Color = Color(0, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71yi8"]
+atlas = ExtResource("4_cg3aa")
+region = Rect2(0, 0, 38, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0com"]
+atlas = ExtResource("4_cg3aa")
+region = Rect2(38, 0, 38, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27ewb"]
+atlas = ExtResource("4_cg3aa")
+region = Rect2(76, 0, 38, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8srv"]
+atlas = ExtResource("4_cg3aa")
+region = Rect2(114, 0, 38, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_165b4"]
+atlas = ExtResource("4_cg3aa")
+region = Rect2(152, 0, 38, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg6do"]
+atlas = ExtResource("4_cg3aa")
+region = Rect2(190, 0, 38, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmg4c"]
+atlas = ExtResource("5_3fli4")
+region = Rect2(96, 0, 48, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x75h"]
+atlas = ExtResource("5_3fli4")
+region = Rect2(144, 0, 48, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d86w"]
+atlas = ExtResource("5_3fli4")
+region = Rect2(96, 21, 48, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnvsu"]
+atlas = ExtResource("5_3fli4")
+region = Rect2(0, 0, 43, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfc7u"]
+atlas = ExtResource("5_3fli4")
+region = Rect2(43, 0, 43, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3v3u"]
+atlas = ExtResource("4_cg3aa")
+region = Rect2(0, 0, 38, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5q02"]
+atlas = ExtResource("6_1w6ad")
+region = Rect2(0, 0, 28, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j56pk"]
+atlas = ExtResource("6_1w6ad")
+region = Rect2(28, 0, 28, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1ruv"]
+atlas = ExtResource("6_1w6ad")
+region = Rect2(56, 0, 28, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mtch"]
+atlas = ExtResource("6_1w6ad")
+region = Rect2(84, 0, 28, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqkh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71yi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0com")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27ewb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8srv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_165b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg6do")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmg4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x75h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d86w")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnvsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfc7u")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3v3u")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5q02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j56pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1ruv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mtch")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_d0pw3"]
+offsets = PackedFloat32Array(0, 0.014218)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jx3yf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_opam8"]
+color_ramp = SubResource("Gradient_d0pw3")
+noise = SubResource("FastNoiseLite_jx3yf")
+
+[sub_resource type="Animation" id="Animation_s76pg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:material:shader_parameter/Color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rkhb2"]
+resource_name = "hit"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:material:shader_parameter/Color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 2, 0.435275, 0.5),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(0.957272, 0, 0.167869, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbyrr"]
+_data = {
+"RESET": SubResource("Animation_s76pg"),
+"hit": SubResource("Animation_rkhb2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82vps"]
+size = Vector2(180, 32)
+
+[node name="Enemy  Foosha" type="CharacterBody2D"]
+collision_mask = 9
+floor_block_on_wall = false
+platform_on_leave = 2
+script = ExtResource("1_yyf1j")
+packed = ExtResource("2_5klnq")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_51s5f")
+debug_color = Color(0.960784, 0.890196, 0.941176, 0)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_i11up")
+texture = ExtResource("2_4dmd5")
+
+[node name="Sprite2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_i11up")
+sprite_frames = SubResource("SpriteFrames_kqkh7")
+animation = &"hit"
+flip_h = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+visible = false
+offset_left = -33.0
+offset_top = -35.0
+offset_right = 33.0
+offset_bottom = -27.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = SubResource("NoiseTexture2D_opam8")
+texture_progress = SubResource("NoiseTexture2D_opam8")
+tint_under = Color(0.137255, 0.105882, 0.180392, 1)
+tint_progress = Color(0, 0.847059, 0.239216, 1)
+
+[node name="ShowHealthTimeout" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="HitboxTimeout" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cbyrr")
+}
+
+[node name="Ray_R" type="RayCast2D" parent="."]
+position = Vector2(0, 7)
+scale = Vector2(2, 2)
+target_position = Vector2(20, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="Ray_D" type="RayCast2D" parent="."]
+position = Vector2(0, 7)
+scale = Vector2(2, 2)
+target_position = Vector2(0, 13)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="Ray_L" type="RayCast2D" parent="."]
+position = Vector2(0, 7)
+scale = Vector2(2, 2)
+target_position = Vector2(-12.5, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="Lifebar" type="ColorRect" parent="."]
+visible = false
+offset_left = -25.0
+offset_top = -40.0
+offset_right = 25.0
+offset_bottom = -30.0
+color = Color(0.756863, 0, 0, 1)
+
+[node name="PlayerSpotter" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSpotter"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_82vps")
+
+[node name="KnivesSpawn" type="Node2D" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="ShowHealthTimeout" to="." method="_on_show_health_timeout_timeout"]

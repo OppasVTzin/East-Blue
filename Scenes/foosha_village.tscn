@@ -1,0 +1,147 @@
+[gd_scene load_steps=9 format=3 uid="uid://calhmfya8y6ni"]
+
+[ext_resource type="Script" path="res://script/Foosha.gd" id="1_7h5re"]
+[ext_resource type="Texture2D" uid="uid://ba0k8nko0n5vw" path="res://Assets/Alvidas Ship2.png" id="1_7t8qk"]
+[ext_resource type="PackedScene" uid="uid://cxwkqxta4ff1h" path="res://Scenes/player.tscn" id="2_2drlo"]
+[ext_resource type="PackedScene" uid="uid://lldlmpqf8rja" path="res://Scenes/enemy__foosha.tscn" id="3_c1b27"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_inur3"]
+texture = ExtResource("1_7t8qk")
+texture_region_size = Vector2i(20, 20)
+0:0/size_in_atlas = Vector2i(80, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_iwqfi"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 5
+sources/0 = SubResource("TileSetAtlasSource_inur3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8isbu"]
+size = Vector2(17, 121.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpqi3"]
+size = Vector2(80, 24)
+
+[node name="Foosha Village" type="Node2D"]
+script = ExtResource("1_7h5re")
+metadata/_edit_vertical_guides_ = [590.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -494.0
+offset_top = -470.0
+offset_right = 3463.0
+offset_bottom = 767.0
+color = Color(0, 0, 0, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_iwqfi")
+format = 2
+layer_0/tile_data = PackedInt32Array(655406, 0, 0)
+
+[node name="Colisor" type="StaticBody2D" parent="TileMap"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="1" type="CollisionShape2D" parent="TileMap/Colisor"]
+position = Vector2(5, 188.25)
+shape = SubResource("RectangleShape2D_8isbu")
+
+[node name="2" type="CollisionShape2D" parent="TileMap/Colisor"]
+position = Vector2(1425, 105)
+shape = SubResource("RectangleShape2D_8isbu")
+disabled = true
+
+[node name="TileMap_StaticBody2D#CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Colisor"]
+polygon = PackedVector2Array(5, 249, 494, 249, 494, 233, 542, 233, 542, 217, 786, 217, 893, 217, 894, 201, 933, 201, 964, 217, 964, 233, 997, 233, 997, 249, 1142, 249, 1142, 233, 1174, 233, 1174, 231, 1174, 169, 1437, 169, 1439, 268, 5, 260)
+
+[node name="Plataform" type="StaticBody2D" parent="TileMap"]
+position = Vector2(983, 159)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Plataform"]
+position = Vector2(30, 2)
+shape = SubResource("RectangleShape2D_fpqi3")
+one_way_collision = true
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2(1430, 0)
+tile_set = SubResource("TileSet_iwqfi")
+format = 2
+layer_0/tile_data = PackedInt32Array(655406, 0, 0)
+
+[node name="Colisor" type="StaticBody2D" parent="TileMap2"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="1" type="CollisionShape2D" parent="TileMap2/Colisor"]
+position = Vector2(5, 188.25)
+shape = SubResource("RectangleShape2D_8isbu")
+disabled = true
+
+[node name="2" type="CollisionShape2D" parent="TileMap2/Colisor"]
+position = Vector2(1425, 105)
+shape = SubResource("RectangleShape2D_8isbu")
+
+[node name="TileMap_StaticBody2D#CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap2/Colisor"]
+polygon = PackedVector2Array(5, 249, 494, 249, 494, 233, 542, 233, 542, 217, 786, 217, 893, 217, 894, 201, 933, 201, 964, 217, 964, 233, 997, 233, 997, 249, 1142, 249, 1142, 233, 1174, 233, 1174, 231, 1174, 169, 1437, 169, 1439, 268, 5, 260)
+
+[node name="Plataform" type="StaticBody2D" parent="TileMap2"]
+position = Vector2(983, 159)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap2/Plataform"]
+position = Vector2(30, 2)
+shape = SubResource("RectangleShape2D_fpqi3")
+one_way_collision = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 2865.0
+offset_top = -470.0
+offset_right = 3463.0
+offset_bottom = 767.0
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_2drlo")]
+position = Vector2(149, 187)
+collision_mask = 55
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-158, -17)
+offset = Vector2(180, 0)
+zoom = Vector2(2.75, 2.75)
+position_smoothing_enabled = true
+position_smoothing_speed = 30.0
+drag_left_margin = 0.59
+drag_top_margin = 0.0
+drag_right_margin = 0.4
+drag_bottom_margin = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Enemy  Foosha" parent="." groups=["Enemy"] instance=ExtResource("3_c1b27")]
+position = Vector2(286, 183)
+collision_layer = 4
+collision_mask = 11
+
+[node name="Enemy  Foosha2" parent="." instance=ExtResource("3_c1b27")]
+position = Vector2(715, 131)
+collision_layer = 4
+collision_mask = 11
+
+[node name="Enemy  Foosha3" parent="." instance=ExtResource("3_c1b27")]
+position = Vector2(1201, 94)
+collision_layer = 4
+collision_mask = 11
+
+[node name="Enemy  Foosha4" parent="." instance=ExtResource("3_c1b27")]
+position = Vector2(1481, 203)
+collision_layer = 4
+collision_mask = 11
+
+[node name="Enemy  Foosha5" parent="." instance=ExtResource("3_c1b27")]
+position = Vector2(2305, 150)
+collision_layer = 4
+collision_mask = 11
+
+[editable path="Player"]

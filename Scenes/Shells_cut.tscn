@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c15f5hh5x3w1q"]
+
+[ext_resource type="VideoStream" path="res://Assets/Shells.ogv" id="1_ee6qc"]
+[ext_resource type="Script" path="res://script/Shells_cut.gd" id="2_tcvwp"]
+
+[node name="Shells_cut" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_ee6qc")
+autoplay = true
+expand = true
+script = ExtResource("2_tcvwp")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=15 format=3 uid="uid://bvtek201bc4y3"]
+
+[ext_resource type="Texture2D" uid="uid://ctvqfcqhx6n2l" path="res://Assets/LoadGame_0001.png" id="1_ucme2"]
+[ext_resource type="Texture2D" uid="uid://cgflh6yjbli2i" path="res://Assets/LoadGame_0002.png" id="2_cr1qq"]
+[ext_resource type="Texture2D" uid="uid://bujihfwjcf0s1" path="res://Assets/LoadGame_0003.png" id="3_3kmvy"]
+[ext_resource type="Texture2D" uid="uid://crvemnsvpudc8" path="res://Assets/LoadGame_0004.png" id="4_nwvx3"]
+[ext_resource type="Texture2D" uid="uid://bniod0e0nh80w" path="res://Assets/LoadGame_0005.png" id="5_jqyee"]
+[ext_resource type="Texture2D" uid="uid://cdlgsvxmc3umd" path="res://Assets/LoadGame_0006.png" id="6_aame5"]
+[ext_resource type="Texture2D" uid="uid://bfoqq5jg8iw85" path="res://Assets/LoadGame_0007.png" id="7_fhqyp"]
+[ext_resource type="Texture2D" uid="uid://cfsuwkq6idb35" path="res://Assets/LoadGame_0008.png" id="8_s71cp"]
+[ext_resource type="Texture2D" uid="uid://clrwilcq8v3ar" path="res://Assets/LoadGame_0009.png" id="9_fa8h5"]
+[ext_resource type="Texture2D" uid="uid://c7bxavrongdoy" path="res://Assets/LoadGame_0010.png" id="10_kroa3"]
+[ext_resource type="Texture2D" uid="uid://dequq2s75o0xy" path="res://Assets/LoadGame_0011.png" id="11_xarfu"]
+[ext_resource type="Texture2D" uid="uid://dgpjpe28swm27" path="res://Assets/LoadGame_0012.png" id="12_i6ihx"]
+[ext_resource type="Script" path="res://script/AutoSave_Sprite.gd" id="13_wlk6u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5w7po"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ucme2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cr1qq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3kmvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nwvx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jqyee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_aame5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fhqyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s71cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fa8h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kroa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xarfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i6ihx")
+}],
+"loop": true,
+"name": &"Save",
+"speed": 5.0
+}]
+
+[node name="AutoSave_Sprite" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_5w7po")
+animation = &"Save"
+script = ExtResource("13_wlk6u")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

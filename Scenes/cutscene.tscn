@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck0xf0ctp40e1"]
+
+[ext_resource type="VideoStream" path="res://Assets/0112 (1).ogv" id="1_vothw"]
+[ext_resource type="Script" path="res://script/cutscene.gd" id="2_lsnn1"]
+
+[node name="CutScene" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stream = ExtResource("1_vothw")
+autoplay = true
+expand = true
+script = ExtResource("2_lsnn1")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://41b1a3pow1ml"]
+
+[ext_resource type="Script" path="res://script/menu.gd" id="1_3ktwd"]
+[ext_resource type="Texture2D" uid="uid://ct68emm1gcbx3" path="res://Assets/one-piece-going-merry.jpg" id="1_qcc2v"]
+[ext_resource type="FontFile" uid="uid://ccxvq44c4fx6v" path="res://Assets/PressStart2P.ttf" id="2_pw8cl"]
+[ext_resource type="PackedScene" uid="uid://belj8l2tu78wc" path="res://Scenes/TransitionNode.tscn" id="3_20hx0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7nqy7"]
+font = ExtResource("2_pw8cl")
+font_size = 64
+font_color = Color(1, 0, 0, 1)
+outline_size = 24
+shadow_size = 40
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3ktwd")
+
+[node name="Rect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qcc2v")
+expand_mode = 2
+
+[node name="Start" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 543.0
+offset_right = 77.0
+offset_bottom = 583.0
+
+[node name="Label" type="Label" parent="Start"]
+layout_mode = 2
+text = "Press Start"
+label_settings = SubResource("LabelSettings_7nqy7")
+
+[node name="Transition" parent="." instance=ExtResource("3_20hx0")]

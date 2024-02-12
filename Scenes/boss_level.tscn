@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://df2ictqpxb1jq"]
+
+[ext_resource type="Texture2D" uid="uid://c03lb0jh0qfd4" path="res://Assets/Alvida.png" id="1_80gkr"]
+[ext_resource type="Script" path="res://script/boss_level.gd" id="1_wqipe"]
+[ext_resource type="PackedScene" uid="uid://cxwkqxta4ff1h" path="res://Scenes/player.tscn" id="2_jge26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18nwx"]
+size = Vector2(6, 94.5)
+
+[node name="Boss_level" type="Node2D" node_paths=PackedStringArray("Background")]
+script = ExtResource("1_wqipe")
+Background = NodePath("Color")
+
+[node name="Color" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+color = Color(0, 0.94902, 1, 1)
+
+[node name="Alvida_Ship" type="Sprite2D" parent="."]
+texture = ExtResource("1_80gkr")
+vframes = 2
+
+[node name="Colisor" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Polygon" type="CollisionPolygon2D" parent="Colisor"]
+polygon = PackedVector2Array(-716, 85, -212, 84, -212, 68, -164, 68, -164, 51, -100, 51, -100, 20, 43, 20, 43, 39, 76, 39, 76, 86, 483, 84, 491, 79, 490, 67, 650, 67, 650, 52, 682, 52, 682, 19, 723, 19, 723, 79, 499, 80, 482, 91, 482, 121, 443, 118, 443, 135, -29, 134, -29, 103, -246, 103, -246, 135, -716, 134)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisor"]
+position = Vector2(-711, 37.5)
+shape = SubResource("RectangleShape2D_18nwx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisor"]
+position = Vector2(721, -29.25)
+shape = SubResource("RectangleShape2D_18nwx")
+
+[node name="Player" parent="." instance=ExtResource("2_jge26")]
+position = Vector2(-679, 52)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(100, -30)
+zoom = Vector2(5, 5)

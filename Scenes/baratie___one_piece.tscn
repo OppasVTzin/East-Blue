@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1jk6qsuyam6u"]
+
+[ext_resource type="PackedScene" uid="uid://cwokjctkdn56" path="res://baratie_-_one_piece.glb" id="1_v70yk"]
+
+[node name="baratie_-_one_piece" instance=ExtResource("1_v70yk")]

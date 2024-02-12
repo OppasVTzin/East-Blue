@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://belj8l2tu78wc"]
+
+[ext_resource type="Shader" path="res://Scenes/TransitionNode.gdshader" id="1_jqnup"]
+[ext_resource type="Script" path="res://Resources/debugLabel.gd" id="2_8me6h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxraj"]
+shader = ExtResource("1_jqnup")
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/player = Vector2(0.5, 0.5)
+shader_parameter/progress = 1.0
+shader_parameter/pixel_size = 15.0
+shader_parameter/circle_size = 1.5
+shader_parameter/curtains = 1.0
+shader_parameter/type = 0
+
+[sub_resource type="Animation" id="Animation_xsxqx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rtts1"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_prpsn"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32djs"]
+_data = {
+"RESET": SubResource("Animation_xsxqx"),
+"fade_in": SubResource("Animation_rtts1"),
+"fade_out": SubResource("Animation_prpsn")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_3vbta"]
+font_size = 48
+
+[node name="Transition" type="CanvasLayer"]
+
+[node name="Fill" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rxraj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Anim" type="AnimationPlayer" parent="Fill"]
+libraries = {
+"": SubResource("AnimationLibrary_32djs")
+}
+autoplay = "fade_out"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: 99"
+label_settings = SubResource("LabelSettings_3vbta")
+script = ExtResource("2_8me6h")

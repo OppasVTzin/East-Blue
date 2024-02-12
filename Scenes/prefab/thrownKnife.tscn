@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy06nasp2dq44"]
+
+[ext_resource type="Texture2D" uid="uid://blk2ktsh3m7j" path="res://Assets/sprites/knifePirateGun.png" id="1_0qda7"]
+[ext_resource type="Script" path="res://Scenes/prefab/thrownKnife.gd" id="1_xavmj"]
+[ext_resource type="Texture2D" uid="uid://r3ndicyqy2g0" path="res://Assets/sprites/fx/explosion.png" id="2_vqecc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rihi8"]
+size = Vector2(14, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an65h"]
+atlas = ExtResource("2_vqecc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnq58"]
+atlas = ExtResource("2_vqecc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enty6"]
+atlas = ExtResource("2_vqecc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jjpa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an65h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnq58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enty6")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"boom",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0qda7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="ThrownKnife" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
+gravity_space_override = 2
+script = ExtResource("1_xavmj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rihi8")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_6jjpa")
+animation = &"boom"
+frame = 3
+frame_progress = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
