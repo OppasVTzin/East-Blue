@@ -9,10 +9,12 @@ var target = 0
 @onready var tempo = $Health
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
+	$Control/HealthBar.max_value = 200
 func _physics_process(_delta):
 	print(hurt)
 	print(health)
 	print(tempo.wait_time)
+	$Control/HealthBar.value = health
 	if hurt:
 		state_machine.travel("Hurt")
 		velocity.x = 0
@@ -47,5 +49,5 @@ func _on_area_2d_body_entered(body):
 func _on_health_timeout():
 	if hurt:
 		state_machine.travel("Walk")
-		health -= 10
+		health -= 20
 	hurt = false

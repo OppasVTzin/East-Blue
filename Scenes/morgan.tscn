@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ds5oq3m0fx62g"]
+[gd_scene load_steps=28 format=3 uid="uid://ds5oq3m0fx62g"]
 
 [ext_resource type="Script" path="res://script/morgan.gd" id="1_i46ug"]
 [ext_resource type="Texture2D" uid="uid://d2txwmkt3se3" path="res://Assets/Shells/Morgan.png" id="1_wanqx"]
@@ -344,6 +344,22 @@ height = 70.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f0e23"]
 height = 96.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkllt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q7xc"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0)
+
 [node name="Morgan" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
@@ -395,6 +411,23 @@ debug_color = Color(1, 1, 1, 0.419608)
 [node name="Health" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -61.0
+offset_top = -64.0
+offset_right = -21.0
+offset_bottom = -24.0
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 113.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rkllt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4q7xc")
+show_percentage = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

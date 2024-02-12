@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ds5oq3m0fx62g" path="res://Scenes/morgan.tscn" id="3_ljyim"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ed6qh"]
-size = Vector2(254, 12)
+size = Vector2(254, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yac8f"]
 size = Vector2(12, 145)
@@ -37,7 +37,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(127, 151)
+position = Vector2(127, 149)
 shape = SubResource("RectangleShape2D_ed6qh")
 
 [node name="Teto" type="CollisionShape2D" parent="StaticBody2D"]
