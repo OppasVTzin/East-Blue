@@ -82,10 +82,10 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Anim" type="AnimationPlayer" parent="Fill"]
+autoplay = "fade_out"
 libraries = {
 "": SubResource("AnimationLibrary_32djs")
 }
-autoplay = "fade_out"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

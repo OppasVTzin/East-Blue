@@ -1,0 +1,8 @@
+[gd_resource type="TubeTrailMesh" load_steps=2 format=3 uid="uid://dcwt3cq0ef2lq"]
+
+[ext_resource type="Material" uid="uid://dxeumvkvuwsfc" path="res://Shaders/Objetivo/Objetivo.tres" id="1_2i6ui"]
+
+[resource]
+material = ExtResource("1_2i6ui")
+radius = 20.0
+section_length = 100.0

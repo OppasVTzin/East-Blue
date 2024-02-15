@@ -3,10 +3,12 @@ extends Node
 #var SAVE_GLOBAL_PATH = "res://global.dat"
 var SAVE_GLOBAL_PATH = "res://save/profile0/global.dat"
 
+var next_scene = "res://Scenes/OceanMap.tscn"
+var loading = preload("res://Scenes/loading.tscn")
+
 #Player global
 var player: Player
 var enemy_death = 0
-
 #Anim
 var playing = false
 #Save

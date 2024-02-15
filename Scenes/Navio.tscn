@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyeb73o3kvh8j"]
+
+[ext_resource type="PackedScene" uid="uid://dsofw50qq2j13" path="res://Assets/one_piece_-going_merry.glb" id="1_fvuaw"]
+
+[node name="one_piece_-going_merry" instance=ExtResource("1_fvuaw")]

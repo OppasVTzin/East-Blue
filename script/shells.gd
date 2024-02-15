@@ -1,6 +1,5 @@
 class_name Shells extends Node2D
 var completo = false
-
 func _init(Boss:Morgan):
 	if completo:
 		SaveSystem._load()

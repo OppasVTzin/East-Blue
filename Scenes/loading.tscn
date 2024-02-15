@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://de6yl1u7uqk6u"]
+
+[ext_resource type="Script" path="res://loading/Script/Loading.gd" id="1_j0ssx"]
+[ext_resource type="StyleBox" uid="uid://c5dee4aigjwfo" path="res://loading/StyleLoadingtres.tres" id="5_0ijof"]
+[ext_resource type="Texture2D" uid="uid://okp6slfsu7bo" path="res://562a505c85bc5c5392b7c169615be90e.png" id="13_r8kn7"]
+[ext_resource type="FontFile" uid="uid://ccxvq44c4fx6v" path="res://Assets/PressStart2P.ttf" id="14_i14pa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q3aol"]
+font = ExtResource("14_i14pa")
+font_size = 38
+font_color = Color(1, 0, 0, 1)
+outline_size = 19
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0ssx")
+
+[node name="Design" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Design"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Design/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -360.0
+offset_right = 310.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_r8kn7")
+
+[node name="RichTextLabel" type="Label" parent="Design/ColorRect/TextureRect"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 408.0
+offset_right = 654.0
+offset_bottom = 449.0
+text = "Chaos in East Blue"
+label_settings = SubResource("LabelSettings_q3aol")
+
+[node name="Pro" type="ProgressBar" parent="."]
+texture_filter = 3
+custom_minimum_size = Vector2(1280, 40)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = ExtResource("5_0ijof")
+metadata/_edit_use_anchors_ = true

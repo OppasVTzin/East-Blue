@@ -24,9 +24,6 @@ SaveSystem="*res://addons/save_system/save_system.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=4
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -165,6 +162,9 @@ Dash={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/anisotropic_filtering_level=0
+textures/decals/filter=2
+textures/light_projectors/filter=2
 
 [shader_globals]
 
