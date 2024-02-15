@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://loading/Script/Loading.gd" id="1_j0ssx"]
 [ext_resource type="StyleBox" uid="uid://c5dee4aigjwfo" path="res://loading/StyleLoadingtres.tres" id="5_0ijof"]
-[ext_resource type="Texture2D" uid="uid://okp6slfsu7bo" path="res://562a505c85bc5c5392b7c169615be90e.png" id="13_r8kn7"]
-[ext_resource type="FontFile" uid="uid://ccxvq44c4fx6v" path="res://Assets/PressStart2P.ttf" id="14_i14pa"]
+[ext_resource type="Texture2D" uid="uid://b2jkd81y8d42t" path="res://562a505c85bc5c5392b7c169615be90e.png" id="13_r8kn7"]
+[ext_resource type="FontFile" uid="uid://cv6t54643epdq" path="res://Assets/PressStart2P.ttf" id="14_i14pa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q3aol"]
 font = ExtResource("14_i14pa")

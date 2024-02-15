@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://bfui2hjydd0i0"]
 
 [ext_resource type="PackedScene" uid="uid://byk6ut5151qmd" path="res://Scenes/Ocean.tscn" id="1_gd7la"]
-[ext_resource type="Texture2D" uid="uid://bfe26pmyujahc" path="res://Resources/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="2_jgmo4"]
+[ext_resource type="Texture2D" uid="uid://dkygwwmqm6v0r" path="res://Resources/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="2_jgmo4"]
 [ext_resource type="PackedScene" uid="uid://dxyoy44d0ih1s" path="res://Scenes/merry.tscn" id="3_5ua58"]
-[ext_resource type="PackedScene" uid="uid://d6i1dynd3gx4" path="res://Assets/Foosha Village.glb" id="6_ihkb2"]
-[ext_resource type="PackedScene" uid="uid://j5aj6xgxu0c1" path="res://Assets/Shells/Shells Town.gltf" id="6_oxo2a"]
+[ext_resource type="PackedScene" uid="uid://c6s8qhlt1gvvw" path="res://Assets/Foosha Village.glb" id="6_ihkb2"]
+[ext_resource type="PackedScene" uid="uid://bsx8i1di3lp5t" path="res://Assets/Shells/Shells Town.gltf" id="6_oxo2a"]
 [ext_resource type="Script" path="res://script/Mesh Script/F_Mesh.gd" id="7_ac7bw"]
 [ext_resource type="Script" path="res://script/Mesh Script/S_Mesh.gd" id="9_6vseg"]
 
