@@ -1,7 +1,7 @@
 extends ObjetivoMesh
 
 func _ready():
-	$".".mesh = Mesh_load
+	$".".mesh = null
 	if level_load.completo:
-		$".".mesh = null
+		$".".mesh = Mesh_load
 

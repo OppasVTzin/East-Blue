@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://41b1a3pow1ml"]
 
 [ext_resource type="Script" path="res://script/menu.gd" id="1_3ktwd"]
-[ext_resource type="Texture2D" uid="uid://ct68emm1gcbx3" path="res://Assets/one-piece-going-merry.jpg" id="1_qcc2v"]
-[ext_resource type="FontFile" uid="uid://ccxvq44c4fx6v" path="res://Assets/PressStart2P.ttf" id="2_pw8cl"]
+[ext_resource type="Texture2D" uid="uid://cff3d8r7udoqc" path="res://Assets/one-piece-going-merry.jpg" id="1_qcc2v"]
+[ext_resource type="FontFile" uid="uid://cv6t54643epdq" path="res://Assets/PressStart2P.ttf" id="2_pw8cl"]
 [ext_resource type="PackedScene" uid="uid://belj8l2tu78wc" path="res://Scenes/TransitionNode.tscn" id="3_20hx0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7nqy7"]
